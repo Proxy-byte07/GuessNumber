@@ -107,20 +107,13 @@ Invalid guesses do not increase the attempt count.
 
 Installation and Usage
 
-Clone the repository:
-
-git clone <repository-url>
-
 Navigate to the project:
-
 cd number-guessing-game
 
 Install dependencies:
-
 npm install
 
 Start the development server:
-
 npm run dev
 
 Open the local URL provided by Vite, typically:
@@ -129,20 +122,15 @@ http://localhost:5173
 Code Quality and Build
 
 Run ESLint to check the code:
-
 npm run lint
 
 Create a production build:
-
 npm run build
 
 Preview the production build locally:
-
 npm run preview
+
 Testing
-
-The application should be tested with:
-
 The application was tested against the following scenarios:
 
 Guess lower than the target: Displays a "Too low" message.
