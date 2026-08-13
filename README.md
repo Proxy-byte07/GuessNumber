@@ -1,144 +1,38 @@
 Number Guessing Game
+Project Overview
 
-A simple and interactive web application where the user attempts to guess a randomly generated number between 1 and 100. The application provides feedback after each guess, tracks attempts, maintains guess history, and allows the user to start a new game.
+Number Guessing Game is an interactive web application in which the user attempts to guess a randomly generated number between 1 and 100. The application generates a new target number for each game and provides feedback after every guess to help the user determine whether the entered number is too high, too low, or correct. The application also tracks the number of attempts and maintains a history of previous guesses.
 
 Features
-Generates a random number between 1 and 100
-Accepts user guesses through an interactive interface
-Provides feedback when the guess is too high or too low
-Detects the correct guess and ends the game
-Tracks the number of attempts
-Maintains a history of previous guesses
-Validates user input
-Allows the user to start a new game
-Responsive and user-friendly interface
+
+The application generates a random number between 1 and 100 at the beginning of each game. Users can enter their guesses through an interactive input field, and the application compares each guess with the randomly generated target number. It provides appropriate feedback such as "Too low", "Too high", or a success message when the correct number is guessed. The application maintains the user's guess history and attempt count and provides a New Game option to reset the current game and generate a new target number.
+
 Technologies Used
-React – Building the user interface and managing application state
-Vite – Development server and build tool
-JavaScript – Game and validation logic
-CSS – Styling and responsive layout
-ESLint – Code quality and static analysis
+
+The project is developed using React and JavaScript for implementing the application logic, state management, and user interface. Vite is used as the development and build tool, while CSS is used to create a clean and responsive interface. ESLint is used to maintain code quality and identify potential issues during development.
+
 Project Structure
-number-guessing-game/
-│
-├── src/
-│   ├── components/
-│   │   └── GuessGame.jsx
-│   │
-│   ├── utils/
-│   │   └── gameLogic.js
-│   │
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-│
-├── public/
-├── package.json
-├── package-lock.json
-├── eslint.config.js
-├── vite.config.js
-└── README.md
-How It Works
 
-When a new game starts, the application generates a random number between 1 and 100.
-
-The user enters a guess, which is validated before being processed.
-
-The guess is then compared with the randomly generated number:
-
-Guess < Target  → Too Low
-Guess > Target  → Too High
-Guess = Target  → Correct
-
-The number of valid attempts is tracked throughout the game. Previous guesses are also stored and displayed to the user.
-
-When the correct number is guessed, the game ends and the user can start a new game.
+The application follows a component-based structure that separates the user interface from the game logic. The main game component manages the user input, game state, feedback messages, attempt count, and guess history. The JavaScript game logic handles random number generation, guess comparison, validation, and game state updates. App.jsx manages the overall application structure and connects the different parts of the game.
 
 Game Logic
 
-The core functionality is separated into gameLogic.js.
-
-Random Number Generation
-
-A random integer is generated within the specified range:
-
-generateRandomNumber(min, max)
-Guess Validation
-
-The application checks that the input:
-
-Is not empty
-Is a valid number
-Is a whole number
-Falls within the allowed range
-Guess Comparison
-
-The user's guess is compared with the target number and returns one of three results:
-
-low
-high
-correct
-
-This keeps the game logic separate from the React user interface.
+At the beginning of each game, the application generates a random integer between 1 and 100. When the user submits a guess, the application validates the input and compares it with the target number. If the guess is lower than the target number, the application displays a "Too low" message. If the guess is higher, it displays a "Too high" message. When the user guesses the correct number, a success message is displayed and the game is marked as completed. Each valid attempt is recorded in the guess history and the attempt counter is updated accordingly.
 
 Validation
 
-The application handles:
+The application validates user input before processing a guess. It prevents empty input and rejects non-numeric values. Guesses below 1 or above 100 are also rejected because they fall outside the defined game range. Appropriate validation messages are displayed to guide the user and prevent invalid guesses from affecting the attempt count or game state.
 
-Empty input
-Non-numeric input
-Decimal values
-Numbers below the minimum range
-Numbers above the maximum range
+Testing
 
-For example:
-
-Input: abc
-→ Please enter a whole number.
-
-Input: 0
-→ Please enter a number between 1 and 100.
-
-Input: 101
-→ Please enter a number between 1 and 100.
-
-Invalid guesses do not increase the attempt count.
+The application was tested with guesses lower and higher than the target number to verify that the appropriate feedback is displayed. Correct guesses were tested to confirm that the success message and game completion state work correctly. Validation was tested using empty input, non-numeric values, numbers below 1, and numbers above 100. The application was also tested for multiple guesses to verify that the attempt count and guess history are updated correctly. The New Game functionality was tested to ensure that the game state is reset and a new random number is generated.
 
 Installation and Usage
 
-Navigate to the project:
-cd number-guessing-game
+To run the project locally, clone the repository and navigate to the project directory. Install the required dependencies using npm install and start the development server using npm run dev. The application can then be accessed through the local URL provided by Vite, typically http://localhost:5173.
 
-Install dependencies:
-npm install
+For production verification, the project can be checked using npm run lint and built using npm run build. The production build can also be previewed using npm run preview.
 
-Start the development server:
-npm run dev
+Live Demo
 
-Open the local URL provided by Vite, typically:
-
-http://localhost:5173
-Code Quality and Build
-
-Run ESLint to check the code:
-npm run lint
-
-Create a production build:
-npm run build
-
-Preview the production build locally:
-npm run preview
-
-Testing
-The application was tested against the following scenarios:
-
-Guess lower than the target: Displays a "Too low" message.
-Guess higher than the target: Displays a "Too high" message.
-Correct guess: Displays a success message and ends the current game.
-Empty input: Displays an appropriate validation error.
-Non-numeric input: Displays an invalid input error.
-Number below 1: Displays a range validation error.
-Number above 100: Displays a range validation error.
-New Game: Resets the target number, attempts, guess history, and messages.
-Multiple guesses: Correctly updates the attempt count and maintains the history of previous guesses.
+Visit the website for the live demo: https://proxy-byte07.github.io/GuessNumber/
